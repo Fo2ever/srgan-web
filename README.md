@@ -1,9 +1,9 @@
 ### RSGAN Project
 
-## Member
+### Member
 6510110506 สุรวีร์ วิวัฒนวาณิชย์ git user ✨ Forever ✨
 
-## Start Project
+### Start Project
 ```
 $  git clone https://github.com/Fo2ever/rsgan-web.git
 ```
@@ -11,6 +11,12 @@ $  git clone https://github.com/Fo2ever/rsgan-web.git
 ```
 $  python -m venv venv
 ```
+
+### Build Docker 
+```
+$ docker compose -f docker-compose.dec.yml up -d
+```
+
 ### Activate Virtual Environment
 
 - **Windows**:
@@ -33,7 +39,7 @@ $  pip install poetry
 $  poetry install
 ```
 
-## Run Web
+### Run Web
 ```
 $  ./scripts/run-web
 ```
