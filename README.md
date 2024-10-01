@@ -5,24 +5,35 @@
 
 ## Start Project
 ```
-$   git clone https://github.com/Fo2ever/rsgan-web.git
+$  git clone https://github.com/Fo2ever/rsgan-web.git
 ```
 
 ```
-$   python -m venv venv
+$  python -m venv venv
 ```
-activate venv
-    - windows --> ./venv/Script/activate
-    - linux   --> source ./venv/bin/activate
+### Activate Virtual Environment
+
+- **Windows**:
+
+    ```bash
+    ./venv/Scripts/activate
+    ```
+
+- **Linux/Mac**:
+
+    ```bash
+    source ./venv/bin/activate
+    ```
+
 ```
-$   pip install poetry
+$  pip install poetry
 ```
 
 ```
-$   poetry install
+$  poetry install
 ```
 
 ## Run Web
 ```
-$   ./scripts/run-web
+$  ./scripts/run-web
 ```
