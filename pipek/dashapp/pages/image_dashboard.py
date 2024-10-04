@@ -17,12 +17,8 @@ image_result_interval = dcc.Interval(
 
 layout = html.Div(
     style={
-        # "backgroundColor": "white",
-        "height": "100vh",
-        "backgroundImage": "url(C:\ProjectEcoFinal\srgan-web\ct.jpg)",  # แทนที่ด้วย path ของภาพของคุณ
-        "backgroundSize": "cover",  # ปรับขนาดภาพให้เต็มพื้นหลัง
-        "backgroundPosition": "center",
-        "opacity": "0.25",
+        "backgroundColor": "white",
+        # "height": "100vh",
     },  # ตั้งค่าพื้นหลังเป็นสีขาว
     children=[
         # Row 1 - Two Cards (images_id and images_detail)
@@ -40,8 +36,22 @@ layout = html.Div(
                                     },
                                 ),
                                 html.Div(
-                                    id="upload-image-ids",
-                                    style={"text-align": "center", "color": "black"},
+                                    [
+                                        html.Div(
+                                            id="upload-image-ids",
+                                            style={
+                                                "text-align": "center",
+                                                "color": "black",
+                                            },
+                                        ),
+                                        html.Div(
+                                            id="upload-original-image-ids",
+                                            style={
+                                                "text-align": "center",
+                                                "color": "black",
+                                            },
+                                        ),
+                                    ],
                                 ),
                             ]
                         ),
@@ -54,49 +64,44 @@ layout = html.Div(
                             "margin-left": "20px",
                             "margin-top": "10px",
                             "margin-right": "-8px",
+                            "display": "none",
                             # เพิ่ม padding ด้านซ้าย
                         },
                     ),
                     width=2,  # 30% of the width
                 ),
                 dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.H5(
-                                    "Next Pages",
-                                    style={
-                                        "text-align": "left",
-                                        "margin-top": "10px",
-                                        "color": "black",
-                                    },
-                                ),
-                                # html.Div(id="image-results", style={"color": "black"}),
-                            ]
-                        ),
-                        style={
-                            "height": "5rem",
-                            "backgroundColor": "#f5f5f5",  # เปลี่ยนสีพื้นหลังการ์ด
-                            "borderRadius": "0.5rem",
-                            "display": "flex",  # ใช้ Flexbox
-                            "justify-Content": "flex-end",  # จัดกลางแนวนอน
-                            "alignItems": "center",  # จัดกลางแนวตั้ง
-                            "margin-right": "20px",
-                            "margin-top": "10px",
-                            "margin-left": "-8px",  # กำหนดความโค้งมน
-                        },
+                    dcc.Link(
+                        html.Button(
+                            html.H5(
+                                "Next Pages",
+                                style={
+                                    "text-align": "left",
+                                    "margin-top": "10px",
+                                    "color": "black",
+                                },
+                            ),
+                        ),  # Button styled as a link to Page 1
+                        href="/dashboard/page_2",  # URL for Page 1
                     ),
-                    width=2,  # 20% of the width
                 ),
             ],
             style={"justify-content": "space-between", "display": "flex"},
             className="mb-2 ",
-        ),  # Adds margin-bottom for spacing between rows
+        ),
         dbc.Row(
             [
                 dbc.Col(
                     dbc.Card(
-                        dbc.CardBody("Card 1"),
+                        dbc.CardBody(
+                            [
+                                "Card 1",
+                                html.Div(
+                                    id="image-original-results",
+                                    style={"color": "black"},
+                                ),
+                            ]
+                        ),
                         style={
                             "height": "26rem",
                             "backgroundColor": "#f5f5f5",  # เปลี่ยนสีพื้นหลังการ์ด
@@ -109,7 +114,12 @@ layout = html.Div(
                 ),
                 dbc.Col(
                     dbc.Card(
-                        dbc.CardBody("Card 2"),
+                        dbc.CardBody(
+                            [
+                                "Card 2",
+                                html.Div(id="image-results", style={"color": "black"}),
+                            ]
+                        ),
                         style={
                             "height": "26rem",
                             "backgroundColor": "#f5f5f5",  # เปลี่ยนสีพื้นหลังการ์ด
@@ -184,6 +194,11 @@ layout = html.Div(
                                 html.Div(id="upload-status"),  # เพิ่ม upload-status ที่นี่
                                 dcc.Interval(id="image-result-interval"),
                                 dcc.Store(id="image-ids"),
+                                html.Div(
+                                    id="upload-original-status"
+                                ),  # เพิ่ม upload-status ที่นี่
+                                dcc.Interval(id="image-original-result-interval"),
+                                dcc.Store(id="image-original-ids"),
                             ]
                         ),
                         style={

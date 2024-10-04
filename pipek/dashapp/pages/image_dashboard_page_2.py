@@ -32,11 +32,11 @@ from dash import html
 layout = html.Div(
     style={
         "backgroundColor": "#e6ecf2ff",
-        "width": "100vw",
-        "height": "100vh",
-        "padding": "0",
-        "margin": "0",
-        "box-sizing": "border-box",
+        # "width": "100vw",
+        # "height": "100vh",
+        # "padding": "0",
+        # "margin": "0",
+        # "box-sizing": "border-box",
     },
     children=[
         html.Div(
