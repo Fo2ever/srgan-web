@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from . import base
 from . import images
 
-from .images import Image
+from .images import Image, ImageOriginal
 
 db = SQLAlchemy(model_class=base.Base)
 engine = None

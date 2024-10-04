@@ -24,3 +24,21 @@ class Image(base.Base):
     )
 
     status: Mapped[str] = mapped_column(String(10), default="waiting")
+
+
+class ImageOriginal(base.Base):
+    __tablename__ = "images_original"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    path: Mapped[str] = mapped_column(String(500))
+    filename: Mapped[Optional[str]]
+    results: Mapped[Optional[str]] = mapped_column(default="")
+
+    created_date: Mapped[datetime.datetime] = mapped_column(
+        default=datetime.datetime.now
+    )
+    updated_date: Mapped[datetime.datetime] = mapped_column(
+        default=datetime.datetime.now
+    )
+
+    status: Mapped[str] = mapped_column(String(10), default="waiting")

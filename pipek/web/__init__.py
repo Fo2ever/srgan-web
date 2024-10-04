@@ -28,6 +28,8 @@ def create_app():
     pipek_env = os.environ.get("PIPEK_ENV", ".env")
     flask_app.config.update(dotenv_values(pipek_env))
 
+    # print(flask_app.config)
+
     views.register_blueprint(flask_app)
     caches.init_cache(flask_app)
 
@@ -46,7 +48,7 @@ def create_app():
     return flask_app
 
 
-def get_program_options(default_host="127.0.0.1", default_port="8080"):
+def get_program_options(default_host="127.0.0.1", default_port="8081"):
     """
     Takes a flask.Flask instance and runs it. Parses
     command-line flags to configure the app.
