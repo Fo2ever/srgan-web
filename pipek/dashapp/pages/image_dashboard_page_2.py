@@ -42,18 +42,83 @@ layout = html.Div(
     children=[
         html.Div(
             children=[
-                html.H2(
-                    "ENHANCE CT_SCAN PICTURE DASHBOARD",
-                    className="text-center mb-3",
-                    style={
-                        "color": "#252525",
-                        "padding-top": "20px",
-                        "position": "relative",
-                    },
+                html.Div(
+                    [
+                        dbc.Row(
+                            dbc.Col(
+                                [
+                                    html.H2(
+                                        "ENHANCE CT_SCAN PICTURE DASHBOARD",
+                                        style={
+                                            "color": "#252525",
+                                            "padding-top": "10px",
+                                            "text-align": "center",  # Center the text horizontally
+                                            "margin": "0",
+                                            "margin-left": "20px",  # Remove default margins
+                                        },
+                                    ),
+                                    html.Div(
+                                        [
+                                            dcc.Link(
+                                                html.Button(
+                                                    "Upload-Image",
+                                                    style={
+                                                        "background-color": "#000000",  # Black background
+                                                        "color": "#FFFFFF",  # White text
+                                                        "border": "none",  # No border
+                                                        "border-radius": "50px",  # Rounded corners for pill shape
+                                                        "padding": "10px 20px",  # Padding to adjust size
+                                                        "font-size": "16px",  # Default font size
+                                                        "cursor": "pointer",  # Pointer on hover
+                                                        "text-align": "center",  # Center text
+                                                        "margin-right": "20px",  # Margin between buttons
+                                                    },
+                                                ),
+                                                href="/dashboard/image-dashboard",
+                                            ),
+                                            dcc.Link(
+                                                html.Button(
+                                                    "Classify",
+                                                    style={
+                                                        "background-color": "#000000",  # Black background
+                                                        "color": "#FFFFFF",  # White text
+                                                        "border": "none",  # No border
+                                                        "border-radius": "50px",  # Rounded corners
+                                                        "padding": "10px 20px",  # Padding to adjust size
+                                                        "font-size": "16px",  # Default font size
+                                                        "cursor": "pointer",  # Pointer on hover
+                                                        "text-align": "center",
+                                                        "margin-right": "20px",  # Center text
+                                                    },
+                                                ),
+                                                href="/dashboard/image-classify",
+                                            ),
+                                        ],
+                                        style={
+                                            "display": "flex",  # Flexbox for row layout
+                                            "justify-content": "flex-end",  # Align buttons to the right
+                                            "align-items": "center",  # Center items vertically
+                                            "margin-left": "auto",  # Push buttons to the right
+                                        },
+                                    ),
+                                ],
+                                style={
+                                    "display": "flex",  # Flexbox for row layout
+                                    "justify-content": "space-between",  # Space between h2 and buttons
+                                    "align-items": "center",
+                                    "padding-top": "20px",  # Align items vertically in center
+                                },
+                            )
+                        )
+                    ]
                 ),
                 # Row 1
                 html.Div(
-                    style={"display": "flex", "margin-bottom": "20px"},
+                    style={
+                        "display": "flex",
+                        "margin-bottom": "20px",
+                        "margin-top": "20px",
+                    },
                     children=[
                         # Column 1 with two cards
                         html.Div(

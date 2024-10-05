@@ -62,67 +62,92 @@ layout = html.Div(
                     ),
                     width=2,
                 ),
-                dbc.Col(
-                    dcc.Link(
-                        html.Button(
-                            html.H5(
-                                "Next Pages",
-                                style={
-                                    "text-align": "left",
-                                    "margin-top": "10px",
-                                    "color": "black",
-                                },
+                dbc.Row(
+                    dbc.Col(
+                        [
+                            dcc.Link(
+                                html.Button(
+                                    "Summary",
+                                    style={
+                                        "background-color": "#000000",  # Black background
+                                        "color": "#FFFFFF",  # White text
+                                        "border": "none",  # No border
+                                        "border-radius": "50px",  # Rounded corners for pill shape
+                                        "padding": "10px 20px",  # Padding to adjust size
+                                        "font-size": "16px",  # Default font size
+                                        "cursor": "pointer",  # Pointer on hover
+                                        "text-align": "center",  # Center text
+                                        "margin-right": "20px",  # Margin between buttons
+                                    },
+                                ),
+                                href="/dashboard/page_2",
                             ),
-                        ),  # Button styled as a link to Page 1
-                        href="/dashboard/page_2",  # URL for Page 1
-                    ),
-                ),
-                dbc.Col(
-                    dcc.Link(
-                        html.Button(
-                            html.H5(
-                                "Next Pages",
-                                style={
-                                    "text-align": "left",
-                                    "margin-top": "10px",
-                                    "color": "black",
-                                },
+                            dcc.Link(
+                                html.Button(
+                                    "Upload-Image",
+                                    style={
+                                        "background-color": "#000000",  # Black background
+                                        "color": "#FFFFFF",  # White text
+                                        "border": "none",  # No border
+                                        "border-radius": "50px",  # Rounded corners
+                                        "padding": "10px 20px",  # Padding to adjust size
+                                        "font-size": "16px",  # Default font size
+                                        "cursor": "pointer",  # Pointer on hover
+                                        "text-align": "center",  # Center text
+                                    },
+                                ),
+                                href="/dashboard/image-dashboard",
                             ),
-                        ),  # Button styled as a link to Page 1
-                        href="/dashboard/image-classify",  # URL for Page 1
+                        ],
+                        style={
+                            "display": "flex",  # Flexbox for row layout
+                            "justify-content": "center",  # Center items horizontally
+                            "align-items": "center",  # Center items vertically
+                            "margin-top": "10px",
+                            "margin-left": "80rem",
+                            "position": "relative",  # ให้ปุ่มอยู่ในตำแหน่ง relative เพื่อใช้ z-index ได้
+                            "zIndex": "15",
+                        },
                     ),
                 ),
             ],
             style={"justify-content": "space-between", "display": "flex"},
             className="mb-2 ",
         ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                "Card 2",
-                                html.Div(id="image-results", style={"color": "black"}),
-                            ]
-                        ),
-                        style={
-                            "height": "26rem",
-                            "backgroundColor": "#f5f5f5",  # เปลี่ยนสีพื้นหลังการ์ด
-                            "borderRadius": "0.5rem",  # กำหนดความโค้งมน
-                            "margin-left": "20px",
-                            "margin-right": "-8px",  # ขยับจากขอบซ้าย
-                        },
-                    ),
-                    width=4,  # Half width
-                ),
-            ],
-            style={"margin-top": "10px", "justify-content": "center"},
+        html.Div(
+            html.Button(
+                "Load Images (Name)",
+                id="load-images-btn",
+                style={
+                    "background-color": "#000000",  # Black background
+                    "color": "#FFFFFF",  # White text
+                    "border": "none",  # No border
+                    "border-radius": "50px",  # Rounded corners for pill shape
+                    "padding": "10px 20px",  # Padding to adjust size
+                    "font-size": "16px",  # Default font size
+                    "cursor": "pointer",  # Pointer on hover
+                    "text-align": "center",  # Center text
+                    "margin-left": "20px",  # Margin between buttons
+                },
+            ),
+            style={
+                "display": "flex",  # Flexbox for row layout
+                "justify-content": "center",  # Center horizontally
+                "align-items": "center",  # Center vertically (optional)
+                "height": "5vh",  # Full viewport height to vertically center
+            },
         ),
-        html.Button("Load Images", id="load-images-btn"),
-        html.Div(id="image-choices"),
+        html.Div(
+            id="image-choices",
+            style={
+                "display": "flex",  # Flexbox layout
+                "color": "#FFFFFF",
+                "flex-direction": "column",  # Stack button and dropdown vertically
+                "align-items": "center",  # Center horizontally
+                "margin-top": "50px",  # Space from top of the screen
+            },
+        ),
         html.Button("Submit", id="submit-btn", n_clicks=0),
-        html.Div(id="classification-result-original"),
         html.Div(id="classification-result"),
     ],
 )

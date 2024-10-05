@@ -49,14 +49,21 @@ def get_image_results(n_clicks):
                 placeholder="Select an image",
                 value=first_image_id,
                 clearable=False,
-                style={"width": "15rem"},
+                style={
+                    "width": "15rem",  # Adjust width of the dropdown
+                    "margin-top": "20px",  # Space between button and dropdown
+                    "background-color": "#f0f0f0",  # Light background color for dropdown
+                    "border-radius": "10px",  # Rounded corners for dropdown
+                    "font-size": "16px",  # Font size
+                    # "padding": "10px",  # Padding for the dropdown content
+                    "color": "#252525",  # Change text color to white
+                },
             )
         ]
     )
 
 
 @dash.callback(
-    dash.Output("classification-result-original", "children"),
     dash.Output("classification-result", "children"),
     dash.Input("submit-btn", "n_clicks"),
     dash.Input("image-dropdown", "value"),
@@ -129,6 +136,24 @@ def get_image_results(n_clicks, selected_image_id):
             has_tumor = True
 
         image_original = image_original.convert("RGB")
+        image_original = image_original.resize((440, 440), Image.LANCZOS)
 
     # นำภาพเข้า model classify
-    return html.Div(html.Img(src=image_original)), html.Div(html.Img(src=image))
+    return html.Div(
+        [
+            html.Div(
+                html.Img(src=image_original),
+                style={
+                    "margin-right": "20px",  # เพิ่มระยะห่างระหว่างรูปภาพ
+                },
+            ),
+            html.Div(html.Img(src=image)),
+        ],
+        style={
+            "display": "flex",  # Use flexbox to manage layout
+            "flex-direction": "row",  # Stack images horizontally
+            "align-items": "center",  # Center images vertically
+            "margin-top": "20px",  # Space between dropdown and images
+            "justify-content": "center",  # Center images horizontally
+        },
+    )

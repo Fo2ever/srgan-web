@@ -26,7 +26,7 @@ layout = html.Div(
         html.Div(
             [
                 html.H1(
-                    "Overlap Header",
+                    "SRGAN Model",
                     style={
                         "color": "white",
                         "marginBottom": "0",
@@ -35,7 +35,7 @@ layout = html.Div(
                     },
                 ),
                 html.P(
-                    "This is the page header that overlaps the main content",
+                    "Original VS Super Resolution Images",
                     style={
                         "color": "white",
                         "marginTop": "0",
@@ -104,51 +104,53 @@ layout = html.Div(
                     ),
                     width=2,  # 30% of the width
                 ),
-                dbc.Col(
-                    [
-                        dcc.Link(
-                            html.Button(
-                                "Next Page",  # Change text directly here for simplicity
-                                style={
-                                    "background-color": "#000000",  # Black background
-                                    "color": "#FFFFFF",  # White text
-                                    "border": "none",  # No border
-                                    "border-radius": "50px",  # Rounded corners for pill shape
-                                    "padding": "10px 20px",  # Padding to adjust size (default)
-                                    "font-size": "16px",  # Default font size
-                                    "cursor": "pointer",  # Changes to pointer when hovering
-                                    "display": "inline-block",  # Ensure button behaves inline
-                                    "text-align": "center",  # Center the text inside the button
-                                    "margin-top": "10px",
-                                    "margin-left": "80rem",
-                                    "position": "relative",  # ให้ปุ่มอยู่ในตำแหน่ง relative เพื่อใช้ z-index ได้
-                                    "zIndex": "15",  # Margin at the top
-                                },
-                            ),  # Button styled as a link to Page 1
-                            href="/dashboard/page_2",  # URL for Page 1
-                        ),
-                        dcc.Link(
-                            html.Button(
-                                "Next Page",  # Change text directly here for simplicity
-                                style={
-                                    "background-color": "#000000",  # Black background
-                                    "color": "#FFFFFF",  # White text
-                                    "border": "none",  # No border
-                                    "border-radius": "50px",  # Rounded corners for pill shape
-                                    "padding": "10px 20px",  # Padding to adjust size (default)
-                                    "font-size": "16px",  # Default font size
-                                    "cursor": "pointer",  # Changes to pointer when hovering
-                                    "display": "inline-block",  # Ensure button behaves inline
-                                    "text-align": "center",  # Center the text inside the button
-                                    "margin-top": "10px",
-                                    "margin-left": "80rem",
-                                    "position": "relative",  # ให้ปุ่มอยู่ในตำแหน่ง relative เพื่อใช้ z-index ได้
-                                    "zIndex": "15",  # Margin at the top
-                                },
-                            ),  # Button styled as a link to Page 1
-                            href="/dashboard/image-classify",  # URL for Page 1
-                        ),
-                    ]
+                dbc.Row(
+                    dbc.Col(
+                        [
+                            dcc.Link(
+                                html.Button(
+                                    "Summary",
+                                    style={
+                                        "background-color": "#000000",  # Black background
+                                        "color": "#FFFFFF",  # White text
+                                        "border": "none",  # No border
+                                        "border-radius": "50px",  # Rounded corners for pill shape
+                                        "padding": "10px 20px",  # Padding to adjust size
+                                        "font-size": "16px",  # Default font size
+                                        "cursor": "pointer",  # Pointer on hover
+                                        "text-align": "center",  # Center text
+                                        "margin-right": "20px",  # Margin between buttons
+                                    },
+                                ),
+                                href="/dashboard/page_2",
+                            ),
+                            dcc.Link(
+                                html.Button(
+                                    "Classify",
+                                    style={
+                                        "background-color": "#000000",  # Black background
+                                        "color": "#FFFFFF",  # White text
+                                        "border": "none",  # No border
+                                        "border-radius": "50px",  # Rounded corners
+                                        "padding": "10px 20px",  # Padding to adjust size
+                                        "font-size": "16px",  # Default font size
+                                        "cursor": "pointer",  # Pointer on hover
+                                        "text-align": "center",  # Center text
+                                    },
+                                ),
+                                href="/dashboard/image-classify",
+                            ),
+                        ],
+                        style={
+                            "display": "flex",  # Flexbox for row layout
+                            "justify-content": "center",  # Center items horizontally
+                            "align-items": "center",  # Center items vertically
+                            "margin-top": "10px",
+                            "margin-left": "80rem",
+                            "position": "relative",  # ให้ปุ่มอยู่ในตำแหน่ง relative เพื่อใช้ z-index ได้
+                            "zIndex": "15",
+                        },
+                    ),
                 ),
             ],
             # style={"justify-content": "space-between", "display": "flex"},
