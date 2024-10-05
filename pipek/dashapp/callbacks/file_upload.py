@@ -127,6 +127,7 @@ def get_image_results(n_intervals, image_ids):
         return "Not Upload"
 
     datas = json.loads(image_ids)
+    re_size = 1280, 1280
 
     results = dict()
     for image_id in datas:
@@ -137,8 +138,19 @@ def get_image_results(n_intervals, image_ids):
 
         image_results = image.path
         pil_image = Image.open(image_results)
+        # pil_image.thumbnail(re_size, Image.Resampling.LANCZOS)
 
-    return html.Div(html.Img(src=pil_image), style={"width": "60%"})
+    return html.Div(
+        html.Img(
+            src=pil_image,
+            style={
+                "width": "auto",  # ให้รูปเต็มความกว้างของการ์ด
+                "height": "auto",  # ปรับขนาดความสูงอัตโนมัติตามสัดส่วน
+                "object-fit": "contain",
+                # "transform": "scale(0)",  # จัดการรูปภาพให้ไม่ล้นกรอบการ์ด
+            },
+        ),  # ปรับความสูงตามที่ต้องการ
+    )
 
 
 @dash.callback(
@@ -185,9 +197,17 @@ def get_original_image_results(n_intervals, image_ids):
         pil_image = Image.open(image_results)
 
     return html.Div(
-        html.Img(src=pil_image),
+        html.Img(
+            src=pil_image,  # เปลี่ยน src ให้เป็น path ของรูปภาพ
+            style={
+                "width": "100%",  # ให้รูปเต็มความกว้างของการ์ด
+                "height": "auto",  # ปรับขนาดความสูงอัตโนมัติตามสัดส่วน
+                "object-fit": "contain",
+                # "transform": "scale(2)",  # จัดการรูปภาพให้ไม่ล้นกรอบการ์ด
+            },
+        ),
         style={
-            "width": "10%",
+            "width": "100%",  # ให้ div ครอบรูปเต็มการ์ด
         },
     )
 

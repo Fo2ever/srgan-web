@@ -31,9 +31,10 @@ from dash import html
 
 layout = html.Div(
     style={
-        "backgroundColor": "#e6ecf2ff",
+        # "backgroundColor": "#e6ecf2ff",
+        "backgroundColor": "#edf2f7ff",
         # "width": "100vw",
-        # "height": "100vh",
+        "height": "120vh",
         # "padding": "0",
         # "margin": "0",
         # "box-sizing": "border-box",
@@ -62,12 +63,15 @@ layout = html.Div(
                             },
                             children=[
                                 dbc.Card(
+                                    "test",
                                     body=True,
                                     style={
                                         "height": "10rem",
                                         "margin-bottom": "15px",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
+                                        "border-left": "30px solid #4169e1",  # Blue left border
+                                        "border-radius": "10px",  # Rounded corners for the card
                                     },
                                 ),
                                 dbc.Card(
@@ -76,6 +80,8 @@ layout = html.Div(
                                         "height": "18rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
+                                        "border-left": "30px solid #a020f0",  # Blue left border
+                                        "border-radius": "10px",  # Rounded corners for the card
                                     },
                                 ),
                             ],
@@ -93,6 +99,8 @@ layout = html.Div(
                                         "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
+                                        "border-bottom": "10px solid black",  # Blue left border
+                                        "border-radius": "10px",
                                     },
                                 ),
                             ],
@@ -110,6 +118,8 @@ layout = html.Div(
                                         "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
+                                        "border-right": "5px solid #ffc40c",  # Blue left border
+                                        "border-radius": "10px",
                                     },
                                 ),
                             ],
@@ -141,7 +151,7 @@ layout = html.Div(
                         html.Div(
                             style={
                                 "width": "47vw",
-                                "margin-left": "20px",
+                                "margin-left": "12px",
                                 # "margin-right": "16px",
                             },
                             children=[
