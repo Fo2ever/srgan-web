@@ -105,27 +105,50 @@ layout = html.Div(
                     width=2,  # 30% of the width
                 ),
                 dbc.Col(
-                    dcc.Link(
-                        html.Button(
-                            "Next Page",  # Change text directly here for simplicity
-                            style={
-                                "background-color": "#000000",  # Black background
-                                "color": "#FFFFFF",  # White text
-                                "border": "none",  # No border
-                                "border-radius": "50px",  # Rounded corners for pill shape
-                                "padding": "10px 20px",  # Padding to adjust size (default)
-                                "font-size": "16px",  # Default font size
-                                "cursor": "pointer",  # Changes to pointer when hovering
-                                "display": "inline-block",  # Ensure button behaves inline
-                                "text-align": "center",  # Center the text inside the button
-                                "margin-top": "10px",
-                                "margin-left": "80rem",
-                                "position": "relative",  # ให้ปุ่มอยู่ในตำแหน่ง relative เพื่อใช้ z-index ได้
-                                "zIndex": "15",  # Margin at the top
-                            },
-                        ),  # Button styled as a link to Page 1
-                        href="/dashboard/page_2",  # URL for Page 1
-                    ),
+                    [
+                        dcc.Link(
+                            html.Button(
+                                "Next Page",  # Change text directly here for simplicity
+                                style={
+                                    "background-color": "#000000",  # Black background
+                                    "color": "#FFFFFF",  # White text
+                                    "border": "none",  # No border
+                                    "border-radius": "50px",  # Rounded corners for pill shape
+                                    "padding": "10px 20px",  # Padding to adjust size (default)
+                                    "font-size": "16px",  # Default font size
+                                    "cursor": "pointer",  # Changes to pointer when hovering
+                                    "display": "inline-block",  # Ensure button behaves inline
+                                    "text-align": "center",  # Center the text inside the button
+                                    "margin-top": "10px",
+                                    "margin-left": "80rem",
+                                    "position": "relative",  # ให้ปุ่มอยู่ในตำแหน่ง relative เพื่อใช้ z-index ได้
+                                    "zIndex": "15",  # Margin at the top
+                                },
+                            ),  # Button styled as a link to Page 1
+                            href="/dashboard/page_2",  # URL for Page 1
+                        ),
+                        dcc.Link(
+                            html.Button(
+                                "Next Page",  # Change text directly here for simplicity
+                                style={
+                                    "background-color": "#000000",  # Black background
+                                    "color": "#FFFFFF",  # White text
+                                    "border": "none",  # No border
+                                    "border-radius": "50px",  # Rounded corners for pill shape
+                                    "padding": "10px 20px",  # Padding to adjust size (default)
+                                    "font-size": "16px",  # Default font size
+                                    "cursor": "pointer",  # Changes to pointer when hovering
+                                    "display": "inline-block",  # Ensure button behaves inline
+                                    "text-align": "center",  # Center the text inside the button
+                                    "margin-top": "10px",
+                                    "margin-left": "80rem",
+                                    "position": "relative",  # ให้ปุ่มอยู่ในตำแหน่ง relative เพื่อใช้ z-index ได้
+                                    "zIndex": "15",  # Margin at the top
+                                },
+                            ),  # Button styled as a link to Page 1
+                            href="/dashboard/image-classify",  # URL for Page 1
+                        ),
+                    ]
                 ),
             ],
             # style={"justify-content": "space-between", "display": "flex"},
@@ -291,86 +314,3 @@ layout = html.Div(
 
 if __name__ == "__main__":
     app.run_server(debug=True)
-
-
-# layout = html.Div(
-#     [
-#         dbc.Row(
-#             [
-#                 dbc.Col(
-#                     dbc.Card(
-#                         dbc.CardBody(
-#                             [
-#                                 html.H5(
-#                                     "Image Ids",
-#                                     style={
-#                                         "text-align": "left",
-#                                         "margin": 0,
-#                                         "color": "black",
-#                                     },
-#                                 ),
-#                                 html.Div(
-#                                     id="upload-image-ids", style={"color": "black"}
-#                                 ),
-#                             ],
-#                         ),
-#                         style={
-#                             "height": "6rem",  # เพิ่มความสูงเป็น 6rem
-#                             "background-color": "white",
-#                             "border-radius": "0.25rem",
-#                         },
-#                     ),
-#                     width=3,  # 30% of the row
-#                 ),
-#                 dbc.Col(
-#                     dbc.Card(
-#                         dbc.CardBody(
-#                             [
-#                                 html.H5(
-#                                     "Image Results",
-#                                     style={
-#                                         "text-align": "left",
-#                                         "margin": 0,
-#                                         "color": "black",
-#                                     },
-#                                 ),
-#                                 html.Div(id="image-results", style={"color": "black"}),
-#                             ],
-#                         ),
-#                         style={
-#                             "height": "6rem",  # เพิ่มความสูงเป็น 6rem
-#                             "background-color": "white",
-#                             "border-radius": "0.25rem",
-#                         },
-#                     ),
-#                     width=7,  # 70% of the row
-#                 ),
-#             ],
-#             style={"margin-bottom": "10px"},  # margin-bottom for the Row
-#         ),
-#         dcc.Upload(
-#             id="upload-data",
-#             children=html.Div(
-#                 ["Drag and Drop or ", html.A("Select Files")], style={"color": "black"}
-#             ),
-#             style={
-#                 "width": "100%",
-#                 "height": "60px",
-#                 "lineHeight": "60px",
-#                 "borderWidth": "1px",
-#                 "borderStyle": "dashed",
-#                 "borderRadius": "5px",
-#                 "textAlign": "center",
-#                 "margin": "10px",
-#                 "background-color": "white",
-#             },
-#             multiple=True,
-#         ),
-#         html.Div(
-#             id="upload-status", style={"color": "black", "background-color": "white"}
-#         ),
-#         image_result_interval,
-#         dcc.Store(id="image-ids"),
-#     ],
-#     style={"background-color": "white"},  # Set background of the entire page to white
-# )
