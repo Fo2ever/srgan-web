@@ -147,7 +147,7 @@ def get_image_results(n_intervals, image_ids):
                 "width": "auto",  # ให้รูปเต็มความกว้างของการ์ด
                 "height": "auto",  # ปรับขนาดความสูงอัตโนมัติตามสัดส่วน
                 "object-fit": "contain",
-                # "transform": "scale(0)",  # จัดการรูปภาพให้ไม่ล้นกรอบการ์ด
+                "transform": "scale(2)",  # จัดการรูปภาพให้ไม่ล้นกรอบการ์ด
             },
         ),  # ปรับความสูงตามที่ต้องการ
     )
@@ -200,7 +200,7 @@ def get_original_image_results(n_intervals, image_ids):
         html.Img(
             src=pil_image,  # เปลี่ยน src ให้เป็น path ของรูปภาพ
             style={
-                "width": "100%",  # ให้รูปเต็มความกว้างของการ์ด
+                "width": "auto",  # ให้รูปเต็มความกว้างของการ์ด
                 "height": "auto",  # ปรับขนาดความสูงอัตโนมัติตามสัดส่วน
                 "object-fit": "contain",
                 # "transform": "scale(2)",  # จัดการรูปภาพให้ไม่ล้นกรอบการ์ด
