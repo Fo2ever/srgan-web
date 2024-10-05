@@ -13,7 +13,7 @@ ENV LANG en_US.UTF-8
 
 RUN python3 -m venv /venv
 ENV PYTHON=/venv/bin/python3
-RUN $PYTHON -m pip install wheel poetry gunicorn
+RUN $PYTHON -m pip install wheel poetry gunicorn inference-sdk
 
 WORKDIR /app
 
