@@ -147,7 +147,7 @@ layout = html.Div(
                 "margin-top": "50px",  # Space from top of the screen
             },
         ),
-        html.Button("Submit", id="submit-btn", n_clicks=0),
+        html.Button("Submit", id="submit-btn", style={"display": "none"}, n_clicks=0),
         html.Div(id="classification-result"),
     ],
 )
