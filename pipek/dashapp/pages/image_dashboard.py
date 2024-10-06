@@ -184,6 +184,7 @@ layout = html.Div(
                                     "display": "flex",
                                     "justifyContent": "center",
                                     "alignItems": "center",
+                                    "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
                                 },
                             ),
                             width=4,
@@ -213,6 +214,7 @@ layout = html.Div(
                                     "display": "flex",
                                     "justifyContent": "center",
                                     "alignItems": "center",
+                                    "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
                                 },
                             ),
                             width=4,
@@ -265,7 +267,7 @@ layout = html.Div(
                                                 "display": "flex",  # ใช้ Flexbox
                                                 "justify-content": "center",  # จัดกลางแนวนอน
                                                 "alignItems": "center",  # จัดกลางแนวตั้ง
-                                                "margin-top": "2rem",
+                                                "margin-top": "1rem",
                                             },
                                             multiple=True,
                                         ),
@@ -298,18 +300,28 @@ layout = html.Div(
                                     ]
                                 ),
                                 style={
-                                    "height": "14rem",
+                                    "height": "10rem",
+                                    "width": "17rem",
                                     "backgroundColor": "#f5f5f5",
+                                    "display": "flex",
+                                    "alignItems": "center",
+                                    "justify-content": "center",
                                     "borderRadius": "0.5rem",  # กำหนดความโค้งมน
                                     "margin-left": "20px",
                                     "margin-right": "-8px",
-                                    "margin-top": "6rem",
+                                    "margin-top": "2rem",
+                                    "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
                                 },
                             ),
-                            width=3,  # Half width
+                            # width=3,  # Half width
                         ),
                     ],
-                    style={"justify-content": "center"},
+                    style={
+                        "display": "flex",
+                        "justify-content": "center",
+                        "alignItems": "center",
+                        "margin-left": "40vw",
+                    },
                 ),
             ]
         ),

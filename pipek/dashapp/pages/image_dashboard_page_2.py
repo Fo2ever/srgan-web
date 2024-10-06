@@ -48,7 +48,7 @@ layout = html.Div(
                             dbc.Col(
                                 [
                                     html.H2(
-                                        "ENHANCE CT_SCAN PICTURE DASHBOARD",
+                                        "ENHANCE MRI BRAIN TUMOR PICTURE DASHBOARD",
                                         style={
                                             "color": "#252525",
                                             "padding-top": "10px",
@@ -63,7 +63,8 @@ layout = html.Div(
                                                 html.Button(
                                                     "Upload-Image",
                                                     style={
-                                                        "background-color": "#000000",  # Black background
+                                                        "background-color": "rgb(250, 109, 87)",  # Black background
+                                                        # "background-color": "#000000",  # Black background
                                                         "color": "#FFFFFF",  # White text
                                                         "border": "none",  # No border
                                                         "border-radius": "50px",  # Rounded corners for pill shape
@@ -80,7 +81,7 @@ layout = html.Div(
                                                 html.Button(
                                                     "Classify",
                                                     style={
-                                                        "background-color": "#000000",  # Black background
+                                                        "background-color": "#4169e1",  # Black background
                                                         "color": "#FFFFFF",  # White text
                                                         "border": "none",  # No border
                                                         "border-radius": "50px",  # Rounded corners
@@ -131,26 +132,34 @@ layout = html.Div(
                                     "test",
                                     body=True,
                                     style={
-                                        "height": "10rem",
+                                        "height": "5rem",
                                         "margin-bottom": "15px",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
-                                        "border-left": "30px solid #4169e1",  # Blue left border
+                                        "border-left": "10px solid rgb(0, 160, 168)",  # Blue left border
+                                        # "border-left": "10px solid #4169e1",  # Blue left border
                                         "border-radius": "10px",  # Rounded corners for the card
                                     },
                                 ),
                                 dbc.Card(
                                     body=True,
                                     style={
-                                        "height": "18rem",
+                                        "height": "23rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
-                                        "border-left": "30px solid #a020f0",  # Blue left border
+                                        "border-left": "10px solid rgb(255, 182, 46)",  # Blue left border
                                         "border-radius": "10px",  # Rounded corners for the card
                                     },
                                     children=[
                                         dcc.Graph(
                                             id="donut-chart",
+                                            style={
+                                                "width": "100%",
+                                                "height": "100%",
+                                            },  # ปรับให้เต็มพื้นที่
+                                            config={
+                                                "displayModeBar": False
+                                            },  # ลบแถบเครื่องมือของกราฟ
                                         ),
                                         dcc.Interval(id="image-result-interval"),
                                     ],
@@ -170,12 +179,17 @@ layout = html.Div(
                                         "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
-                                        "border-bottom": "10px solid black",  # Blue left border
+                                        "border-bottom": "10px solid #4169e1",  # Blue left border  # Blue left border
                                         "border-radius": "10px",
                                     },
                                     children=[
                                         dcc.Graph(
-                                            id="plot-confidence",  # ใส่กราฟในนี้
+                                            id="plot-confidence",
+                                            style={
+                                                "width": "100%",
+                                                "height": "100%",
+                                            },
+                                            # ใส่กราฟในนี้
                                             config={"displayModeBar": False},
                                         ),
                                         dcc.Interval(id="image-result-interval"),
@@ -196,7 +210,7 @@ layout = html.Div(
                                         "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
-                                        "border-right": "5px solid #ffc40c",  # Blue left border
+                                        "border-right": "10px solid rgb(255, 182, 46)",  # Blue left border
                                         "border-radius": "10px",
                                     },
                                     # children=[
@@ -224,13 +238,19 @@ layout = html.Div(
                                 dbc.Card(
                                     body=True,
                                     style={
-                                        "height": "22rem",
+                                        "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
+                                        "border-left": "10px solid rgb(250, 109, 87)",  # Blue left border
+                                        "border-radius": "10px",
                                     },
                                     children=[
                                         dcc.Graph(
                                             id="time-process-chart",
+                                            style={
+                                                "width": "100%",
+                                                "height": "100%",
+                                            },
                                         ),
                                         dcc.Interval(id="image-result-interval"),
                                     ],
@@ -248,11 +268,22 @@ layout = html.Div(
                                 dbc.Card(
                                     body=True,
                                     style={
-                                        "height": "22rem",
+                                        "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
-                                        "box-radius": "0.35rem",
+                                        "border-right": "10px solid rgb(0, 112, 153)",  # Blue left border
+                                        "border-radius": "10px",
                                     },
+                                    children=[
+                                        dcc.Graph(
+                                            id="bar-plot",
+                                            style={
+                                                "width": "100%",
+                                                "height": "100%",
+                                            },
+                                        ),
+                                        dcc.Interval(id="image-result-interval"),
+                                    ],
                                 ),
                             ],
                         ),
