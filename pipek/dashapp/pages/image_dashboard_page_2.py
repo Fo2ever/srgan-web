@@ -148,6 +148,12 @@ layout = html.Div(
                                         "border-left": "30px solid #a020f0",  # Blue left border
                                         "border-radius": "10px",  # Rounded corners for the card
                                     },
+                                    children=[
+                                        dcc.Graph(
+                                            id="donut-chart",
+                                        ),
+                                        dcc.Interval(id="image-result-interval"),
+                                    ],
                                 ),
                             ],
                         ),
@@ -193,12 +199,12 @@ layout = html.Div(
                                         "border-right": "5px solid #ffc40c",  # Blue left border
                                         "border-radius": "10px",
                                     },
-                                    children=[
-                                        dcc.Graph(
-                                            id="donut-chart",
-                                        ),
-                                        dcc.Interval(id="image-result-interval"),
-                                    ],
+                                    # children=[
+                                    #     dcc.Graph(
+                                    #         id="donut-chart",
+                                    #     ),
+                                    #     dcc.Interval(id="image-result-interval"),
+                                    # ],
                                 ),
                             ],
                         ),
