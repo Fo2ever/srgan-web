@@ -167,6 +167,12 @@ layout = html.Div(
                                         "border-bottom": "10px solid black",  # Blue left border
                                         "border-radius": "10px",
                                     },
+                                    children=[
+                                            dcc.Graph(
+                                                id="plot-confidence",  # ใส่กราฟในนี้
+                                                config={'displayModeBar': False}
+                                            )
+                                        ],
                                 ),
                             ],
                         ),
