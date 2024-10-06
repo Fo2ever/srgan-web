@@ -109,7 +109,7 @@ def update_time_process_plot(n_intervals):
         x=combined_df.index,
         y="processing_time_rolling",
         color="label",
-        title="Rolling Average Processing Time",
+        title="Average Processing Time",
         labels={
             "processing_time_rolling": "Rolling Average Processing Time",
             "label": "Model",
@@ -192,19 +192,6 @@ def update_confidence_plot(n_intervals):
     if len(combined_data) > 0:
         fig.add_trace(
             go.Violin(
-                x=combined_data["label"][combined_data["label"] == "After"],
-                y=combined_data["confidence"][combined_data["label"] == "After"],
-                name="After Model",
-                box_visible=False,
-                meanline_visible=True,
-                points="all",
-                jitter=0.05,
-                marker=dict(opacity=0.3),
-                line=dict(color="#66b3ff"),
-            )
-        )
-        fig.add_trace(
-            go.Violin(
                 x=combined_data["label"][combined_data["label"] == "Before"],
                 y=combined_data["confidence"][combined_data["label"] == "Before"],
                 name="Before Model",
@@ -216,18 +203,20 @@ def update_confidence_plot(n_intervals):
                 line=dict(color="#ff9999"),
             )
         )
-
         fig.add_trace(
-            go.Box(
+            go.Violin(
                 x=combined_data["label"][combined_data["label"] == "After"],
                 y=combined_data["confidence"][combined_data["label"] == "After"],
-                name="After Model - Boxplot",
-                boxmean=True,  # Show mean
-                marker_color="rgb(0, 112, 153)",
-                line_width=3,
-                width=0.2,
+                name="After Model",
+                box_visible=False,
+                meanline_visible=True,
+                points="all",
+                jitter=0.05,
+                marker=dict(opacity=0.3),
+                line=dict(color="#66b3ff"),
             )
         )
+
         fig.add_trace(
             go.Box(
                 x=combined_data["label"][combined_data["label"] == "Before"],
@@ -239,9 +228,20 @@ def update_confidence_plot(n_intervals):
                 width=0.2,
             )
         )
+        fig.add_trace(
+            go.Box(
+                x=combined_data["label"][combined_data["label"] == "After"],
+                y=combined_data["confidence"][combined_data["label"] == "After"],
+                name="After Model - Boxplot",
+                boxmean=True,  # Show mean
+                marker_color="rgb(0, 112, 153)",
+                line_width=3,
+                width=0.2,
+            )
+        )
 
         fig.update_layout(
-            title_text="Rain Cloud Plot with Mean for Confidence Values by Model",  # ชื่อกราฟ
+            title_text="Normal Distribution with Box-Plot (Mean) for Confidence Values by Model",  # ชื่อกราฟ
             title_x=0.5,  # จัดให้ชื่อกราฟอยู่กลางห
             legend=dict(
                 orientation="h",  # จัดแนวนอน

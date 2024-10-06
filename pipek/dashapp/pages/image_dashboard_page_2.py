@@ -3,8 +3,13 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 
 # ใช้ธีมสีขาว (Flatly)
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-
+app = dash.Dash(
+    __name__,
+    external_stylesheets=[
+        dbc.themes.BOOTSTRAP,  # ใช้ธีม Bootstrap
+        "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap",  # ใช้ฟอนต์ Nunito จาก Google Fonts
+    ],
+)
 dash.register_page(__name__, path="/page_2")
 
 image_result_interval = dcc.Interval(
@@ -32,13 +37,16 @@ from dash import html
 layout = html.Div(
     style={
         # "backgroundColor": "#e6ecf2ff",
-        "backgroundColor": "rgb(232, 245, 255)",
+        # "backgroundColor": "rgb(232, 245, 255)",
+        # "backgroundColor": "rgb(232, 245, 255)",
+        "backgroundColor": "rgb(230, 243, 255)",
         # "backgroundColor": "#edf2f7ff",
         # "width": "100vw",
         "height": "120vh",
         # "padding": "0",
         # "margin": "0",
         # "box-sizing": "border-box",
+        "font-family": "Nunito, sans-serif",
     },
     children=[
         html.Div(
@@ -55,7 +63,9 @@ layout = html.Div(
                                             "padding-top": "10px",
                                             "text-align": "center",  # Center the text horizontally
                                             "margin": "0",
-                                            "margin-left": "20px",  # Remove default margins
+                                            "margin-left": "20px",
+                                            # "fontFamily": "'Roboto', sans-serif",  # Remove default margins
+                                            "fontFamily": "Nunito, sans-serif",
                                         },
                                     ),
                                     html.Div(
@@ -74,6 +84,7 @@ layout = html.Div(
                                                         "cursor": "pointer",  # Pointer on hover
                                                         "text-align": "center",  # Center text
                                                         "margin-right": "20px",  # Margin between buttons
+                                                        # "fontFamily": "'Roboto', sans-serif",
                                                     },
                                                 ),
                                                 href="/dashboard/image-dashboard",
@@ -130,16 +141,20 @@ layout = html.Div(
                             },
                             children=[
                                 dbc.Card(
-                                    "test",
+                                    "MODEL : SRGANs",
                                     body=True,
                                     style={
-                                        "height": "5rem",
+                                        "color": "#252525",
                                         "margin-bottom": "15px",
+                                        "margin-top": "5px",
+                                        "height": "5rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
                                         "border-left": "10px solid rgb(0, 160, 168)",  # Blue left border
-                                        # "border-left": "10px solid #4169e1",  # Blue left border
                                         "border-radius": "10px",  # Rounded corners for the card
+                                        "textAlign": "center",  # จัดข้อความให้อยู่กลาง
+                                        "fontSize": "34px",  # ขยายขนาดข้อความ
+                                        "fontWeight": "bold",  # ทำให้ข้อความเป็นตัวหนา
                                     },
                                 ),
                                 dbc.Card(
@@ -180,7 +195,8 @@ layout = html.Div(
                                         "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
-                                        "border-bottom": "10px solid #4169e1",  # Blue left border  # Blue left border
+                                        "border-bottom": "10px solid rgb(79, 111, 214)",  # Blue left border  # Blue left border
+                                        # "border-bottom": "10px solid #4169e1",  # Blue left border  # Blue left border
                                         "border-radius": "10px",
                                     },
                                     children=[
@@ -211,15 +227,42 @@ layout = html.Div(
                                         "height": "29rem",
                                         "backgroundColor": "#ffffff",  # Set card background color to white
                                         "box-shadow": "rgba(33, 40, 50, 0.15) 0px 2.4px 28px 0px",
-                                        "border-right": "10px solid rgb(255, 182, 46)",  # Blue left border
+                                        "border-right": "10px solid rgb(255, 182, 46)",  # Yellow right border
                                         "border-radius": "10px",
+                                        "display": "flex",  # ใช้ flexbox เพื่อจัดให้อยู่ตรงกลาง
+                                        "justify-content": "center",  # จัดแนวนอนให้อยู่ตรงกลาง
+                                        "align-items": "center",  # จัดแนวตั้งให้อยู่ตรงกลาง
                                     },
-                                    # children=[
-                                    #     dcc.Graph(
-                                    #         id="donut-chart",
-                                    #     ),
-                                    #     dcc.Interval(id="image-result-interval"),
-                                    # ],
+                                    children=[
+                                        html.Div(
+                                            [
+                                                html.Span(
+                                                    "Sample data for comparison between images without the model and images processed by the SRGAN model, with a total of",
+                                                    style={
+                                                        "textAlign": "center",
+                                                        "fontSize": "20px",  # ขนาดของข้อความส่วนแรก
+                                                        "color": "#252525",
+                                                        "marginTop": "40px",  # สีข้อความส่วนแรก
+                                                        "display": "inline-block",  # เปลี่ยน display เพื่อให้ margin ทำงาน
+                                                    },
+                                                ),
+                                                html.Span(
+                                                    "371 Images",  # ข้อความที่แยกออกมา
+                                                    style={
+                                                        "textAlign": "center",
+                                                        "fontSize": "36px",  # ขยายขนาดฟอนต์สองเท่า
+                                                        "color": "#ffcc00",  # สีเหลือง
+                                                        "fontWeight": "bold",  # ข้อความเป็นตัวหนา
+                                                        "marginTop": "45px",  # ระยะห่างระหว่างประโยคแรก
+                                                        "display": "block",  # จัดให้อยู่คนละบรรทัด
+                                                    },
+                                                ),
+                                            ],
+                                            style={
+                                                "textAlign": "center"
+                                            },  # จัดข้อความทั้งหมดให้อยู่ตรงกลาง
+                                        ),
+                                    ],
                                 ),
                             ],
                         ),
