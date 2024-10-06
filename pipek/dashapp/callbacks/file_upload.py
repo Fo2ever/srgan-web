@@ -138,18 +138,13 @@ def get_image_results(n_intervals, image_ids):
 
         image_results = image.path
         pil_image = Image.open(image_results)
-        # pil_image.thumbnail(re_size, Image.Resampling.LANCZOS)
+        new_size = (440, 440)
+        pil_image = pil_image.resize(new_size)
 
     return html.Div(
         html.Img(
             src=pil_image,
-            style={
-                "width": "auto",  # ให้รูปเต็มความกว้างของการ์ด
-                "height": "auto",  # ปรับขนาดความสูงอัตโนมัติตามสัดส่วน
-                "object-fit": "contain",
-                "transform": "scale(2)",  # จัดการรูปภาพให้ไม่ล้นกรอบการ์ด
-            },
-        ),  # ปรับความสูงตามที่ต้องการ
+        ),
     )
 
 
@@ -195,19 +190,15 @@ def get_original_image_results(n_intervals, image_ids):
 
         image_results = image.path
         pil_image = Image.open(image_results)
+        new_size = (440, 440)
+        pil_image = pil_image.resize(new_size)
 
     return html.Div(
         html.Img(
-            src=pil_image,  # เปลี่ยน src ให้เป็น path ของรูปภาพ
-            style={
-                "width": "auto",  # ให้รูปเต็มความกว้างของการ์ด
-                "height": "auto",  # ปรับขนาดความสูงอัตโนมัติตามสัดส่วน
-                "object-fit": "contain",
-                # "transform": "scale(2)",  # จัดการรูปภาพให้ไม่ล้นกรอบการ์ด
-            },
+            src=pil_image,
         ),
         style={
-            "width": "100%",  # ให้ div ครอบรูปเต็มการ์ด
+            "width": "100%",
         },
     )
 

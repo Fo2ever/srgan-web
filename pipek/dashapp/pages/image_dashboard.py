@@ -153,7 +153,6 @@ layout = html.Div(
                     ),
                 ),
             ],
-            # style={"justify-content": "space-between", "display": "flex"},
             className="mb-2 ",
         ),
         html.Div(
@@ -170,7 +169,7 @@ layout = html.Div(
                                             style={
                                                 "color": "black",
                                                 "display": "flex",
-                                                "justifyContent": "center",  # จัดกลางแนวนอน
+                                                "justifyContent": "center",
                                                 "alignItems": "center",
                                                 "height": "100%",
                                             },
@@ -178,14 +177,16 @@ layout = html.Div(
                                     ]
                                 ),
                                 style={
-                                    "height": "26rem",
-                                    "backgroundColor": "#f5f5f5",  # เปลี่ยนสีพื้นหลังการ์ด
-                                    "borderRadius": "0.5rem",  # กำหนดความโค้งมน
+                                    "height": "35rem",
+                                    "backgroundColor": "#f5f5f5",
+                                    "borderRadius": "0.5rem",
                                     "margin-left": "20px",
-                                    "margin-right": "-8px",  # ขยับจากขอบซ้าย
+                                    "display": "flex",
+                                    "justifyContent": "center",
+                                    "alignItems": "center",
                                 },
                             ),
-                            width=4,  # Half width
+                            width=4,
                         ),
                         dbc.Col(
                             dbc.Card(
@@ -197,22 +198,24 @@ layout = html.Div(
                                             style={
                                                 "color": "black",
                                                 "display": "flex",
-                                                "justifyContent": "center",  # จัดกลางแนวนอน
-                                                "alignItems": "center",  # จัดกลางแนวตั้ง
-                                                "height": "100%",  # ให้ div สูงเต็มการ์ด เพื่อให้ alignItems ทำงานได้
+                                                "justifyContent": "center",
+                                                "alignItems": "center",
+                                                "height": "100%",
                                             },
                                         ),
                                     ]
                                 ),
                                 style={
-                                    "height": "26rem",
-                                    "backgroundColor": "#f5f5f5",  # เปลี่ยนสีพื้นหลังการ์ด
-                                    "borderRadius": "0.5rem",  # กำหนดความโค้งมน
+                                    "height": "35rem",
+                                    "backgroundColor": "#f5f5f5",
+                                    "borderRadius": "0.5rem",
                                     "margin-left": "20px",
-                                    "margin-right": "-8px",  # ขยับจากขอบซ้าย
+                                    "display": "flex",
+                                    "justifyContent": "center",
+                                    "alignItems": "center",
                                 },
                             ),
-                            width=4,  # Half width
+                            width=4,
                         ),
                     ],
                     style={"margin-top": "60px", "justify-content": "center"},
