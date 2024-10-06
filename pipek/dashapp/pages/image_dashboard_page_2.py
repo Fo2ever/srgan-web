@@ -32,7 +32,8 @@ from dash import html
 layout = html.Div(
     style={
         # "backgroundColor": "#e6ecf2ff",
-        "backgroundColor": "#edf2f7ff",
+        "backgroundColor": "rgb(232, 245, 255)",
+        # "backgroundColor": "#edf2f7ff",
         # "width": "100vw",
         "height": "120vh",
         # "padding": "0",
@@ -48,7 +49,7 @@ layout = html.Div(
                             dbc.Col(
                                 [
                                     html.H2(
-                                        "ENHANCE MRI BRAIN TUMOR PICTURE DASHBOARD",
+                                        "ENHANCE MRI BRAIN TUMOR IMAGE DASHBOARD",
                                         style={
                                             "color": "#252525",
                                             "padding-top": "10px",
