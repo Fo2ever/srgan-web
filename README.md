@@ -49,4 +49,4 @@ $  ./scripts/run-web
 ```
 
 ### Colab Model SRGAN Training
----> [Model SRGAN Training](https://colab.research.google.com/drive/1MHEF2mbzUPFylOH2Swi-Iy-jyWZGMykn?usp=sharing)
+>> [Model SRGAN Training](https://colab.research.google.com/drive/1MHEF2mbzUPFylOH2Swi-Iy-jyWZGMykn?usp=sharing)
