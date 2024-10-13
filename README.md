@@ -1,8 +1,9 @@
 ### RSGAN Project
 
 ### Member
-6510110399 รักษิต พูลสวัสดิ์ git user ruksitart
-6510110506 สุรวีร์ วิวัฒนวาณิชย์ git user ✨ Forever ✨
+6510110399 รักษิต พูลสวัสดิ์ git user ✨ Ruksitart ✨
+6510110438 วารีฟ ดารอเง๊าะ git user ✨ Warif438 ✨
+6510110506 สุรวีร์ วิวัฒนวาณิชย์ git user ✨ Fo2ever ✨
 
 ### Start Project
 ```
@@ -44,3 +45,6 @@ $  poetry install
 ```
 $  ./scripts/run-web
 ```
+
+### Colab Model SRGAN Training
+[Model SRGAN Training](https://colab.research.google.com/drive/1MHEF2mbzUPFylOH2Swi-Iy-jyWZGMykn?usp=sharing)
